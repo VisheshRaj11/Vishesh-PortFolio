@@ -1,6 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom";
-import { Contact, Contributions, Home, Projects, Skills } from "./pages";
+import { Contact, Contributions, Home, NotFound, Projects, Skills } from "./pages";
 import Layout from "./components/Layout";
 
 const App:React.FC = () => {
@@ -12,6 +12,7 @@ const App:React.FC = () => {
           <Route path="projects" element={<Projects/>}/>
           <Route path="contributions" element={<Contributions/>}/>
           <Route path="contact" element={<Contact/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Route>
     </Routes>
   </div>
