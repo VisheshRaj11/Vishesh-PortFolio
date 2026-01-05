@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import skills from "../data/skillsData"; // Make sure the path is correct
+import {motion} from "framer-motion"
 
 // Types for better IntelliSense
 interface SkillItem {
@@ -26,8 +27,8 @@ const skillButtons: SkillButton[] = [
     hovercss: "hover:bg-white/20 hover:text-gray-300 hover:scale-105",
   },
   {
-    name: "Back & Dbs",
-    key: "Back_Dbs",
+    name: "Backend & Database",
+    key: "Backend_Database",
     hovercss: "hover:bg-white/20 hover:text-gray-300 hover:scale-105",
   },
   {
@@ -40,15 +41,24 @@ const skillButtons: SkillButton[] = [
     key: "DevOps_Infrastructure",
     hovercss: "hover:bg-white/20 hover:text-gray-300 hover:scale-105",
   },
+  {
+    name: "Ai Automation & Tools",
+    key: "AI_Automation_Tools",
+    hovercss: "hover:bg-white/20 hover:text-gray-300 hover:scale-105",
+  },
 ];
 
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   return (
-    <section className="p-8 bg-[#0d1117] text-white">
-      <h2 className="text-3xl font-bold mb-10 text-center text-gray-300">Skills Section</h2>
+    <motion.section 
+    initial={{opacity:0, y:20}}
+    whileInView={{opacity:20, y:0}}
+    transition={{duration:0.6}}
+    className="p-8 bg-[#0d1117] text-white">
+      <h2 className="text-3xl font-bold mb-4 text-center text-gray-300">Skills Section</h2>
       <div className='w-full'>
-       <ul className="flex flex-wrap items-center justify-center w-full gap-2 p-4 backdrop-blur-sm rounded-xl">
+       <ul className="flex flex-wrap items-center justify-center w-full gap-2 p-4 backdrop-blur-sm rounded-xl mb-5">
           {skillButtons.map((skillButton, idx) => {
             return (
               <li 
@@ -94,31 +104,44 @@ const skillButtons: SkillButton[] = [
                 {categoryName.replace(/_/g, ' & ')}
               </h3>
 
-              <div className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap gap-6 border border-gray-500 p-2 rounded-xl max-w-3xl">
                 {items.map((skill: SkillItem, sIdx: number) => (
-                  <div 
-                    key={sIdx} 
-                    className="flex flex-col items-center group cursor-pointer"
-                  >
-                    <div className="p-2 rounded-lg bg-[#161b22] hover:bg-[#1f2937] transition-colors border border-gray-800">
-                      <img 
-                        src={skill.icon} 
-                        alt={skill.name} 
-                        title={skill.name} 
-                        className="w-12 h-12 object-contain" 
-                      />
-                    </div>
-                    <span className="mt-2 text-xs text-gray-400 group-hover:text-white transition-colors">
-                      {skill.name}
-                    </span>
-                  </div>
+                  // Inside your items.map function:
+<motion.div 
+  key={sIdx} 
+  className="flex flex-col items-center group cursor-pointer"
+  // FRAMER MOTION PROPS
+  whileHover={{ 
+    rotateY: 15,    // Rotates on the Y axis
+    rotateX: -10,   // Rotates on the X axis
+    scale: 1.1,     // Grows slightly
+    z: 50           // Pulls it toward the screen (requires perspective on parent)
+  }}
+  transition={{ 
+    type: "spring", 
+    stiffness: 300, 
+    damping: 10 
+  }}
+  style={{ perspective: 1000 }} // Gives it 3D depth
+>
+  <div className="p-2 rounded-lg bg-[#161b22] group-hover:bg-[#1f2937] transition-colors border border-gray-800 shadow-xl">
+    <img 
+      src={skill.icon} 
+      alt={skill.name} 
+      className="w-12 h-12 object-contain" 
+    />
+  </div>
+  <span className="mt-2 text-xs text-gray-400 group-hover:text-white transition-colors">
+    {skill.name}
+  </span>
+</motion.div>
                 ))}
               </div>
             </div>
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

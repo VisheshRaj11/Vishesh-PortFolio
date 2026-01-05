@@ -22,6 +22,7 @@ const skills = [
       { name: "Node.js", icon: "https://skillicons.dev/icons?i=nodejs", category: "Backend & DB" },
       { name: "Express", icon: "https://skillicons.dev/icons?i=express", category: "Backend & DB" },
       { name: "MongoDB", icon: "https://skillicons.dev/icons?i=mongodb", category: "Backend & DB" },
+      { name: "Postgres", icon: "https://skillicons.dev/icons?i=postgres", category: "Backend & DB" },
       { name: "Firebase", icon: "https://skillicons.dev/icons?i=firebase", category: "Backend & DB" },
       { name: "Appwrite", icon: "https://skillicons.dev/icons?i=appwrite", category: "Backend & DB" },
       { name: "Bun", icon: "https://skillicons.dev/icons?i=bun", category: "Backend & DB" },
@@ -40,7 +41,6 @@ const skills = [
       { name: "PowerShell", icon: "https://skillicons.dev/icons?i=powershell", category: "Tools & Deployment" },
       { name: "Windows", icon: "https://skillicons.dev/icons?i=windows", category: "Tools & Deployment" },
       { name: "Cloudflare Workers", icon: "https://skillicons.dev/icons?i=workers", category: "Tools & Deployment" },
-      { name: "n8n", icon: "https://skillicons.dev/icons?i=n8n", category: "Tools & Deployment" },
     ],
   },
   {
@@ -50,6 +50,32 @@ const skills = [
       { name: "Jenkins", icon: "https://skillicons.dev/icons?i=jenkins", category: "DevOps" },
       { name: "Grafana", icon: "https://skillicons.dev/icons?i=grafana", category: "DevOps" },
     ],
+  },
+  {
+    AI_Automation_Tools: [
+  {
+    name: "ChatGPT",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+    category: "ai",
+  },
+  {
+    name: "Gemini",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
+    category: "ai",
+  },
+  {
+    name: "n8n",
+    icon: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/n8n.svg",
+    category: "ai",
+  },
+ {
+  name: "DeepSeek",
+  icon: "/deep.png",
+  category: "ai",
+}
+
+]
+
   },
 ];
 
