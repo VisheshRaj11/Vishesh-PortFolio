@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
       }
     } catch (error) {
        console.error("Contact submit error:", error);
-       toast.success("Response send successfully");
+       toast.error("Failed to submit");
     } finally {
       form.reset();
       setLoader(false);
