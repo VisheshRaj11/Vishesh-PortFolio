@@ -68,11 +68,6 @@ const Layout: React.FC = () => {
           <main className="flex-1 overflow-y-auto bg-black">
             <Outlet />
           </main>
-
-          {/* 5. Fixed Footer at the bottom of the content area */}
-          <footer className="border-t border-gray-800 bg-zinc-950">
-            <Footer />
-          </footer>
         </div>
       </div>
     </div>

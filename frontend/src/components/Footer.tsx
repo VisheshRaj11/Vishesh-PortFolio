@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer:React.FC = () => {
   return (
-    <div>Footer</div>
+    <div className='p-2 text-center'>
+      Footer
+    </div>
   )
 }
 
