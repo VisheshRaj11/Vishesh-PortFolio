@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import axios from "axios";
+import { toast } from 'react-toastify';
+
+interface Response {
+   data:{
+     success:boolean,
+     message:string
+   }
+}
 
 const Contact: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loader, setLoader] = useState(false);
+  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const sendData = {
+      email:formData.get('email'),
+      mobile:formData.get('mobile'),
+      message:formData.get('message')
+    }
+    setLoader(true);
+    try {
+      const response: Response = await axios.post('http://localhost:5000/api/contact',sendData);
+      if(response.data.success) {
+        toast.success(response.data.message);
+        return
+      }
+    } catch (error) {
+       console.error("Contact submit error:", error);
+       toast.success("Failed to send message");
+    } finally {
+      form.reset();
+      setLoader(false);
+    }
   };
 
   return (
@@ -57,6 +88,7 @@ const Contact: React.FC = () => {
             <div className="flex flex-col gap-2">
               <label className="text-xs uppercase tracking-widest font-semibold text-gray-500">Email Address</label>
               <input 
+                name='email'
                 type="email" 
                 placeholder="you@example.com"
                 className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
@@ -66,7 +98,8 @@ const Contact: React.FC = () => {
 
             <div className="flex flex-col gap-2">
               <label className="text-xs uppercase tracking-widest font-semibold text-gray-500">Phone Number</label>
-              <input 
+              <input
+               name='mobile' 
                 type="tel" 
                 placeholder="+1 (555) 000-0000"
                 className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
@@ -75,7 +108,9 @@ const Contact: React.FC = () => {
 
             <div className="flex flex-col gap-2">
               <label className="text-xs uppercase tracking-widest font-semibold text-gray-500">Message</label>
-              <textarea 
+              <textarea
+              name='message'
+                typeof='text'
                 rows={4}
                 placeholder="How can I help you?"
                 className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all resize-none"
@@ -88,7 +123,7 @@ const Contact: React.FC = () => {
               type="submit"
               className="w-full bg-white text-black font-bold py-4 rounded-xl mt-4 hover:bg-gray-200 transition-all shadow-lg shadow-white/5"
             >
-              Send Message
+              {loader ? "Sending .." : "Send Message"}
             </motion.button>
           </form>
         </motion.div>
