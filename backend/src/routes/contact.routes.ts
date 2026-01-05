@@ -29,11 +29,10 @@ contactRouter.post('/contact',async(req:Request, res:Response) => {
             data: result.rows[0]
         })
     } catch (error: any) {
-        console.error("Contact API Error:", error);
-
-    res.status(500).json({
-      success: false,
-      message: "Server error. Please try again later.",
-    });
+        console.error("Contact API Error:", error.message);
+        res.status(500).json({
+        success: false,
+        message: "Server error. Please try again later.",
+        });
     }
 })
