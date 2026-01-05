@@ -139,7 +139,7 @@ const ThankYou: React.FC = () => {
                   className="group bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 rounded-xl px-8 py-6 text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
                 >
                   <Power className="mr-2 text-emerald-500 group-hover:text-emerald-400 transition-colors" size={20} />
-                  Initiate Final Connection
+                  Connect
                 </Button>
                  <p className="text-xs text-slate-500 mt-6 font-mono">
                   © {new Date().getFullYear()} Vishesh. MERN • Kotlin • Docker.
