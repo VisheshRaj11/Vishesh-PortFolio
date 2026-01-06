@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Layout: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ const Layout: React.FC = () => {
             sm:hidden border
           "
         >
-          <ChevronRight size={20} />
+        {open ? <ChevronLeft size={20}/> : <ChevronRight size={20}/>}
         </button>
 
         {/* Mobile Sidebar */}
