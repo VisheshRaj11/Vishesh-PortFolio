@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
     }
     setLoader(true);
     try {
-      const response: Response = await axios.post('http://localhost:5000/api/contact',sendData);
+      const response: Response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}`,sendData);
       if(response.data.success) {
         toast.success(response.data.message);
         return

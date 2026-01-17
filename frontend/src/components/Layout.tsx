@@ -1,17 +1,79 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
-import Footer from "./Footer";
 import { ChevronRight } from "lucide-react";
+import {motion} from "framer-motion";
+
+const name = "Vishesh Raj";
+
 
 const Layout: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [splash, setSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSplash(false);
+    },4000);
+
+    return () => clearTimeout(timer);
+  },[])
 
   return (
     // 1. Set h-screen and overflow-hidden to prevent the whole page from scrolling
     <div className="h-screen overflow-hidden flex flex-col">
-      <div className="flex flex-1 relative overflow-hidden">
-        
+      {splash ? 
+       <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ 
+        y: "-100%", 
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 } 
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a] overflow-hidden"
+    >
+      <div className="relative flex flex-col items-center">
+        {/* Main Text Animation */}
+        <motion.h1
+          className="flex overflow-hidden text-4xl sm:text-4xl md:text-6xl font-semibold tracking-tighter text-gray-200"
+        >
+          {name.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{
+                delay: i * 0.08,
+                duration: 0.8,
+                ease: [0.6, 0.01, 0.05, 0.95],
+              }}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        {/* Decorative Animated Line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.5, ease: "circOut" }}
+          className="h-[2px] w-24 bg-blue-500 mt-4 origin-left"
+        />
+
+        {/* Subtitle / Role (Optional) */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.5, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+          className="mt-4 text-sm uppercase tracking-[0.5em] text-gray-400 italic"
+        >
+          Full Stack Developer
+        </motion.p>
+      </div>
+    </motion.div>
+        :
+        <div className="flex flex-1 relative overflow-hidden">
         {/* Mobile Toggle Button */}
         <button
           onClick={() => setOpen(prev => !prev)}
@@ -68,13 +130,9 @@ const Layout: React.FC = () => {
           <main className="flex-1 overflow-y-auto bg-black">
             <Outlet />
           </main>
-
-          {/* 5. Fixed Footer at the bottom of the content area */}
-          <footer className="border-t border-gray-800 bg-zinc-950">
-            <Footer />
-          </footer>
         </div>
       </div>
+      }
     </div>
   );
 };
