@@ -8,9 +8,6 @@ interface SkillItem {
   category: string;
 }
 
-interface SkillCategory {
-  [key: string]: SkillItem[];
-}
 
 interface SkillButton {
   name: string,

@@ -30,7 +30,7 @@ const Home: React.FC = () => {
       </motion.section>
 
       <motion.section
-        className='relative min-h-screen bg-zinc-900 z-20 rounded-t-[1.5rem] md:rounded-t-[3rem] -mt-10 md:mt-0'
+        className='relative min-h-screen bg-zinc-900 z-20 rounded-t-[1.5rem] md:rounded-t-[3rem] -mt-10 md:mt-0 m-2'
         initial={{ y: 80 }}
         whileInView={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

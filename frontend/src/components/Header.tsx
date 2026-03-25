@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import myImage from "../assets/myImage.jpg"
-import { Blocks, Clock, Download, FolderGit2, Github, GitPullRequest, Home, icons, Linkedin, Smartphone } from 'lucide-react'
+import myImage from "../assets/myImage.png"
+import { Blocks, Clock, Download, FolderGit2, Github, GitPullRequest, Home, icons, LaptopMinimal, LaptopMinimalCheck, Linkedin, ShieldCheck, Smartphone } from 'lucide-react'
 import { NavLink } from 'react-router-dom';
 import { Button } from './ui/button';
 
@@ -16,11 +16,13 @@ const Header:React.FC<HeaderProps> = ({open, setOpen}) => {
     {name: "Skill Set", icon: <Blocks/>, path:'/skills'},
     {name: "Projects", icon: <FolderGit2/>, path:'/projects'},
     {name: "Contributions", icon: <GitPullRequest/>, path:'/contributions'},
+    {name: "Certificates", icon: <ShieldCheck/>, path:'/certificate'},
     {name: "Contact", icon: <Smartphone/>, path:'/contact'},
   ]
 
    const socialProfiles = [{name:"Linkedin",icon: <Linkedin/>, url:"https://www.linkedin.com/in/vishesh-raj", hoverClass: "hover:text-blue-400 hover:border-blue-400"},
                           {name:"Github",icon: <Github/>, url:"https://www.github.com/VisheshRaj11", hoverClass: "hover:text-green-400 hover:border-green-400"},
+                          {name:"Leetcode",icon: <LaptopMinimalCheck/>, url:"https://www.github.com/VisheshRaj11", hoverClass: "hover:text-yellow-400 hover:border-yellow-400"},
                         ]
 
                         
@@ -102,12 +104,12 @@ const Header:React.FC<HeaderProps> = ({open, setOpen}) => {
         </div>
 
         <div className='p-2 shrink-0'>
-            <Button 
+            <button 
             onClick={handleDownload}
-            className='border border-gray-600 hover:bg-white/10 hover:shadow-sm hover:shadow-purple-300 transition duration-300 border-dashed w-full '>
+            className='flex items-center gap-2 border border-gray-600 hover:bg-white/10 hover:shadow-sm hover:shadow-purple-300 transition duration-300 border-dashed w-full p-2 rounded hover:scale-105 duration-300 transition'>
                 <span><Download/></span>
                 <p>Download Cv</p>
-            </Button>
+            </button>
         </div>
 
         <div className='px-2 border-t border-gray-700 bg-black/10 flex flex-col items-center shrink-0'>

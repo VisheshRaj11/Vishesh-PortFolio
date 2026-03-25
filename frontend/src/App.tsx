@@ -4,6 +4,7 @@ import { Contact, Contributions, Home, NotFound, Projects, Skills } from "./page
 import Layout from "./components/Layout";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Certifications from "./pages/Certifications";
 
 const App:React.FC = () => {
   return <div className="bg-zinc-900 min-h-screen text-white">
@@ -24,6 +25,7 @@ const App:React.FC = () => {
           <Route path="skills" element={<Skills/>}/>
           <Route path="projects" element={<Projects/>}/>
           <Route path="contributions" element={<Contributions/>}/>
+          <Route path="certificate" element={<Certifications/>}/>
           <Route path="contact" element={<Contact/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Route>
