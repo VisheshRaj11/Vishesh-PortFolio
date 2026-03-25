@@ -22,7 +22,7 @@ const Header:React.FC<HeaderProps> = ({open, setOpen}) => {
 
    const socialProfiles = [{name:"Linkedin",icon: <Linkedin/>, url:"https://www.linkedin.com/in/vishesh-raj", hoverClass: "hover:text-blue-400 hover:border-blue-400"},
                           {name:"Github",icon: <Github/>, url:"https://www.github.com/VisheshRaj11", hoverClass: "hover:text-green-400 hover:border-green-400"},
-                          {name:"Leetcode",icon: <LaptopMinimalCheck/>, url:"https://www.github.com/VisheshRaj11", hoverClass: "hover:text-yellow-400 hover:border-yellow-400"},
+                          {name:"Leetcode",icon: <LaptopMinimalCheck/>, url:"https://leetcode.com/u/visheshrajput47", hoverClass: "hover:text-yellow-400 hover:border-yellow-400"},
                         ]
 
                         

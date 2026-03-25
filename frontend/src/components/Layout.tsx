@@ -29,12 +29,12 @@ const Layout: React.FC = () => {
         y: "-100%", 
         transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 } 
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a] overflow-hidden"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a] overflow-hidden tracking-tighter"
     >
       <div className="relative flex flex-col items-center">
         {/* Main Text Animation */}
         <motion.h1
-          className="flex overflow-hidden text-4xl sm:text-4xl md:text-6xl font-semibold tracking-tighter text-gray-200"
+          className="flex overflow-hidden text-4xl sm:text-4xl md:text-5xl font-semibold tracking-tighter text-gray-200"
         >
           {name.split("").map((char, i) => (
             <motion.span
