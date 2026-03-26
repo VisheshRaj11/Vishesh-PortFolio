@@ -4,6 +4,9 @@ import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react';
 import project1 from "../assets/project1.jpg";
 import project2 from "../assets/project2.jpg";
 import project3 from "../assets/project3.jpg";
+import project4 from "../assets/project4.png";
+import project5 from "../assets/project5.png";
+import project6 from "../assets/project6.png";
 
 interface Project {
   id: number;
@@ -27,6 +30,15 @@ const projects: Project[] = [
   },
   { 
     id: 2, 
+    title: "Shoe Craftify", 
+    description: "AI-driven 3d customization shoes platform.", 
+    tags: ["React", "Node.js", "AI"],
+    github: "https://github.com/ramkumar-lpu/ShoeCraftify",
+    link: "https://shoe-craftify.vercel.app/",
+    image: project6
+  },
+  { 
+    id: 3, 
     title: "Codify", 
     description: "Advanced code reviewer and summarizer for developers.", 
     tags: ["React.js", "Node.js", "AI"],
@@ -35,13 +47,31 @@ const projects: Project[] = [
     image: project2
   },
   { 
-    id: 3, 
+    id: 6, 
+    title: "Groups", 
+    description: "A community-based platform, used for project making and interaction.", 
+    tags: ["Ejs", "Nodejs", "Tailwind"],
+    github: "https://github.com/satyam-tomar/MakeProjectTeam",
+    link: "https://groups-x07c.onrender.com/",
+    image: project5
+  },
+  { 
+    id: 4, 
     title: "BlogPost", 
     description: "A sleek, minimalist platform for daily blogging and content sharing.", 
     tags: ["React.js", "Appwrite", "Tailwind"],
     github: "https://github.com/VisheshRaj11/BlogApp",
     link: "https://blogapp30.netlify.app",
     image: project3
+  },
+  { 
+    id: 5, 
+    title: "Recipe Heaven", 
+    description: "A modern food recipe website designed to help users easily discover, save, and cook delicious meals with a clean and user-friendly interface.", 
+    tags: ["React.js", "Nodejs", "Tailwind"],
+    github: "https://github.com/VisheshRaj11/Food11",
+    link: "https://recipeheaven11.netlify.app/",
+    image: project4
   },
 ];
 
