@@ -6,7 +6,6 @@ import {motion} from "framer-motion";
 
 const name = "Vishesh Raj";
 
-
 const Layout: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [splash, setSplash] = useState(true);

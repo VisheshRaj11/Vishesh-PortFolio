@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import myImage from "../assets/myImage.png"
 import { Blocks, Clock, Download, FolderGit2, Github, GitPullRequest, Home, icons, LaptopMinimal, LaptopMinimalCheck, Linkedin, ShieldCheck, Smartphone } from 'lucide-react'
 import { NavLink } from 'react-router-dom';
-import { Button } from './ui/button';
+import './header.css';
 
 
 interface HeaderProps{
@@ -58,7 +58,7 @@ const Header:React.FC<HeaderProps> = ({open, setOpen}) => {
             </div>
         </div>
 
-        <nav className='flex-1 min-h-0 overflow-y-auto'>
+        <nav className='flex-1 min-h-0 overflow-y-auto' id='scroll'>
         <ul className="flex flex-col gap-1 p-2">
             {navItems.map((item) => (
             <li key={item.path}>
